@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Accent colour of each municipality. -->
+    <color name="municipality_beijing">#C62828</color>
+    <!-- red -->
+    <color name="municipality_shanghai">#C2185B</color>
+    <!-- magenta -->
+    <color name="municipality_tianjin">#36454F</color>
+    <!-- charcoal -->
+    <color name="municipality_chongqing">#FF6D00</color>
+    <!-- bright orange -->
+
+    <!-- Shared text and background colours. -->
+    <color name="color_text_light">#FFFFFFFF</color>
+    <color name="color_text_dark">#FF1C1C1C</color>
+    <color name="color_default_background">#FFF4F4F4</color>
+
+    <!-- Solid background colour used by the adaptive launcher icon. -->
+    <color name="ic_launcher_background">#FF000000</color>
+</resources>
