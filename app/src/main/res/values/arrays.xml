@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Factual summaries of the four Chinese municipalities, listed in the same order as
+        the names in TextProcessor, so a name and its summary share a position.
+
+        Each item sits on one line because Android keeps the line breaks and the
+        indentation written inside a string resource.
+    -->
+    <string-array name="municipalities_array">
+        <item>Beijing is the capital of the People\'s Republic of China and the political and cultural centre of the country. It lies in northern China and is one of the four municipalities directly administered by the central government. The city is home to world-famous landmarks such as the Forbidden City, the Temple of Heaven and long sections of the Great Wall, and it hosted both the 2008 Summer Olympics and the 2022 Winter Olympics, becoming the first city to stage both. Beijing is also a major centre for higher education, research and technology, with many of the leading universities and companies of China based there.</item>
+        <item>Shanghai is the largest city by population in China and its leading commercial and financial centre. It sits on the eastern coast where the Yangtze River meets the East China Sea, and the Port of Shanghai is one of the busiest container ports in the world. The city grew rapidly after it was opened to foreign trade in 1843, which shaped the historic architecture of the Bund waterfront. Across the Huangpu River, Pudong is a modern skyline of skyscrapers and the site of the 2010 World Expo. Shanghai is also known for its museums, universities and lively food culture.</item>
+        <item>Chongqing is a large municipality in south-west China that was separated from Sichuan Province in 1997. It is built on steep hills where the Yangtze and Jialing rivers meet, and its mountain setting has earned it the nickname Mountain City. The municipality covers a very large area that includes dense urban districts as well as rural counties, and it is one of the fastest-growing industrial regions in China. It is also the starting point for Three Gorges river cruises and is well known for spicy hotpot, foggy weather and dramatic night views over the two rivers.</item>
+        <item>Tianjin is a coastal municipality in northern China on the shore of Bohai Bay, about 120 kilometres south-east of Beijing. It is one of the oldest and largest ports in the country, and the Haihe River runs through the city centre. Binhai New Area, a national development zone, hosts advanced manufacturing, shipping and aerospace industries. European-style buildings from the former concession districts stand beside modern skyscrapers, and the city is known for its street food, its comic and quyi performing arts, and for hosting football matches during the 2008 Olympic Games.</item>
+    </string-array>
+</resources>
