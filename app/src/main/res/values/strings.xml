@@ -8,4 +8,11 @@
     <string name="content_description_main_image">Map of the municipalities of China</string>
     <string name="error_empty_input">Please enter a municipality name.</string>
     <string name="error_unsupported_municipality">Unsupported municipality. Please enter Beijing, Shanghai, Tianjin or Chongqing.</string>
+
+    <!-- Second screen -->
+    <string name="title_activity_municipality">Municipality</string>
+    <string name="visit_site">Visit site</string>
+    <string name="content_description_municipality_image">Picture of the selected municipality</string>
+    <string name="content_description_municipality_image_named">Picture of %1$s</string>
+    <string name="error_missing_municipality">No municipality was selected. Returning to the main screen.</string>
 </resources>
