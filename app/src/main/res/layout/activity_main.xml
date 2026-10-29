@@ -4,6 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_default_background"
     android:fillViewport="true"
     tools:context=".MainActivity">
 
@@ -13,13 +14,53 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <!-- Screen title -->
         <TextView
+            android:id="@+id/mainTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Chinese Municipalities"
+            android:text="@string/main_title"
+            android:textColor="@color/color_text_dark"
             android:textSize="26sp"
             android:textStyle="bold" />
+
+        <!-- Image of the Chinese municipalities -->
+        <ImageView
+            android:id="@+id/chineseMunicipalitiesImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/content_description_main_image"
+            android:maxHeight="260dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/chinese_municipalities" />
+
+        <!-- Label for the text input -->
+        <TextView
+            android:id="@+id/municipalityInputLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/municipality_input_label"
+            android:textColor="@color/color_text_dark"
+            android:textSize="16sp" />
+
+        <!-- Single-line text input; Enter triggers the Go action -->
+        <EditText
+            android:id="@+id/municipalityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/municipality_input_hint"
+            android:imeOptions="actionGo"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/color_text_dark"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
