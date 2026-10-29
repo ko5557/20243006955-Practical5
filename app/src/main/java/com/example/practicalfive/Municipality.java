@@ -1,6 +1,9 @@
 package com.example.practicalfive;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,7 +19,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 /**
  * Second screen: displays the information of the municipality that was selected on the
- * main screen and changes its appearance according to that municipality.
+ * main screen, changes its appearance according to that municipality and opens the official
+ * website of the municipality.
  *
  * <p>Student: Deng ZiChen (20243006955)</p>
  */
@@ -28,6 +32,9 @@ public class Municipality extends AppCompatActivity {
      * the key can never get out of sync.
      */
     public static final String EXTRA_MUNICIPALITY = "com.example.practicalfive.extra.MUNICIPALITY";
+
+    /** Official website of the municipality that is currently displayed. */
+    private String websiteUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,10 @@ public class Municipality extends AppCompatActivity {
 
         setTitle(municipalityName);
         displayMunicipality(municipalityName);
+
+        // Button click event: open the official website of the displayed municipality.
+        Button visitSiteButton = findViewById(R.id.visitSiteButton);
+        visitSiteButton.setOnClickListener(view -> openMunicipalityWebsite());
     }
 
     /**
@@ -59,23 +70,28 @@ public class Municipality extends AppCompatActivity {
     private void displayMunicipality(String municipalityName) {
         int accentColorRes;
         int imageRes;
+        int websiteRes;
 
         switch (municipalityName) {
             case TextProcessor.BEIJING:
                 accentColorRes = R.color.municipality_beijing;
                 imageRes = R.drawable.beijing;
+                websiteRes = R.string.website_beijing;
                 break;
             case TextProcessor.SHANGHAI:
                 accentColorRes = R.color.municipality_shanghai;
                 imageRes = R.drawable.shanghai;
+                websiteRes = R.string.website_shanghai;
                 break;
             case TextProcessor.TIANJIN:
                 accentColorRes = R.color.municipality_tianjin;
                 imageRes = R.drawable.tianjin;
+                websiteRes = R.string.website_tianjin;
                 break;
             case TextProcessor.CHONGQING:
                 accentColorRes = R.color.municipality_chongqing;
                 imageRes = R.drawable.chongqing;
+                websiteRes = R.string.website_chongqing;
                 break;
             default:
                 // Reached only when a name passed the earlier checks but has no resources.
@@ -83,6 +99,8 @@ public class Municipality extends AppCompatActivity {
                 finish();
                 return;
         }
+
+        websiteUrl = getString(websiteRes);
 
         int accentColor = ContextCompat.getColor(this, accentColorRes);
         int lightTextColor = ContextCompat.getColor(this, R.color.color_text_light);
@@ -125,6 +143,28 @@ public class Municipality extends AppCompatActivity {
         String[] summaries = getResources().getStringArray(R.array.municipalities_array);
         int index = TextProcessor.indexOfMunicipality(municipalityName);
         return index >= 0 && index < summaries.length ? summaries[index] : "";
+    }
+
+    /**
+     * Opens the official website of the municipality that is currently displayed.
+     *
+     * <p>An <em>implicit</em> Intent is used: the application does not name a target
+     * component, it only describes the action ({@link Intent#ACTION_VIEW}) and the data
+     * (the website URL), so Android can resolve the request to a suitable application,
+     * normally a web browser.</p>
+     */
+    private void openMunicipalityWebsite() {
+        if (websiteUrl == null) {
+            return;
+        }
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(websiteUrl));
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException exception) {
+            // No browser (or other suitable application) is installed on this device.
+            Toast.makeText(this, R.string.error_no_browser, Toast.LENGTH_LONG).show();
+        }
     }
 
     /**
